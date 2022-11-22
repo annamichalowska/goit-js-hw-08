@@ -1,14 +1,6 @@
 const iframe = document.querySelector('iframe#vimeo-player');
 const player = new Vimeo.Player(iframe);
 
-player.on('play', () => {
-  console.log('played the video!');
-});
-
-player.getVideoTitle().then(title => {
-  console.log('title:', title);
-});
-
 const savePlayerTime = ({ duration, percent, seconds }) => {
   console.log(seconds);
   localStorage.setItem('videoplayer-current-time', seconds);
@@ -33,7 +25,6 @@ const getLocalLastPlayedTime = () => {
 const resumePlayerOnLastPlayed = () => {
   const lastPlayedTime = getLocalLastPlayedTime();
   player.setCurrentTime(lastPlayedTime);
-  // player.play();
 };
 
 resumePlayerOnLastPlayed();
