@@ -33,6 +33,10 @@ const getLocalLastPlayedTime = () => {
 const resumePlayerOnLastPlayed = () => {
   const lastPlayedTime = getLocalLastPlayedTime();
   player.setCurrentTime(lastPlayedTime);
+  player
+    .setLoop(true)
+    .then(function (loop) {})
+    .catch(function (error) {});
 };
 
 resumePlayerOnLastPlayed();
