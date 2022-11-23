@@ -23,6 +23,9 @@ form.addEventListener('submit', event => {
   const {
     elements: { email, message },
   } = event.currentTarget;
+  if (email.value === '' || message.value === '') {
+    alert('Wszystkie pola powinny zostać wypełnione!');
+  }
   console.log({ email: email.value, message: message.value });
 
   event.currentTarget.reset();
